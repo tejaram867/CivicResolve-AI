@@ -1,0 +1,12 @@
+{
+  "name": "civicresolve-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CivicResolve AI — frontend + Node API gateway",
+  "scripts": {
+    "start": "node backend/server.js",
+    "install:backend": "npm install --prefix backend",
+    "setup": "npm install --prefix backend",
+    "dev": "node backend/server.js"
+  }
+}

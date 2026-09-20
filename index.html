@@ -1,0 +1,1078 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CivicResolve AI - Turning Civic Problems Into Resolved Actions</title>
+  <meta name="description" content="CivicResolve AI connects citizens with authorities, uses AI to understand civic complaints, reduces duplicates, and provides transparent issue tracking." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <nav class="nav-inner">
+
+      <!-- Logo -->
+      <a href="#home" class="nav-logo">
+        <div class="logo-icon">
+          <img src="CivicResolve Logo.png" alt="CivicResolve AI Logo" class="logo-img"/>
+        </div>
+        <div class="logo-text">
+          <span class="brand">Civic<span>Resolve</span> AI</span>
+          <span class="tagline">Civic Intelligence Platform</span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#qa">Q&amp;A</a></li>
+        <!-- Sliding cursor pill -->
+        <li class="nav-cursor" id="navCursor" aria-hidden="true"></li>
+      </ul>
+
+      <!-- CTA Buttons -->
+      <div class="nav-cta">
+        <!-- Dark / Light mode toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb">
+              <svg class="icon-sun" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+              <svg class="icon-moon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </span>
+          </span>
+        </button>
+        <a href="login.html" class="btn-nav-login">Login</a>
+        <a href="login.html" class="btn-nav-report">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Report an Issue
+        </a>
+      </div>
+
+      <!-- Hamburger -->
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#categories">Categories</a>
+      <a href="#qa">Q&amp;A</a>
+      <div class="nav-mobile-cta">
+        <a href="login.html" class="btn btn-secondary">Login</a>
+        <a href="login.html" class="btn btn-primary">Report an Issue</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section id="home">
+  <!-- Background decorations -->
+  <div class="bg-grid"></div>
+  <div class="glow-orb-1"></div>
+  <div class="glow-orb-2"></div>
+
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- ── LEFT COLUMN ── -->
+      <div class="hero-left">
+
+        <!-- Badge -->
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          🇮🇳 &nbsp;National Civic Intelligence Platform
+        </div>
+
+        <!-- Headline -->
+        <h1 class="display-1 hero-headline">
+          Turning Civic<br/>
+          Problems Into<br/>
+          <em>Resolved Actions.</em>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="lead hero-subtext">
+          CivicResolve AI connects citizens with authorities using artificial intelligence -
+          understanding complaints, eliminating duplicates, rallying community support
+          and delivering <strong>transparent, trackable resolutions</strong>.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-actions">
+          <a href="login.html" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 1v16M1 9h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            Report an Issue
+          </a>
+          <button class="btn btn-secondary btn-lg">
+            Explore How It Works
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Highlight Chips -->
+        <div class="hero-highlights">
+          <span class="highlight-chip chip-ai">
+            <span class="chip-icon">🤖</span> AI Assisted
+          </span>
+          <span class="highlight-chip chip-ev">
+            <span class="chip-icon">📎</span> Evidence Based
+          </span>
+          <span class="highlight-chip chip-com">
+            <span class="chip-icon">👥</span> Community Driven
+          </span>
+          <span class="highlight-chip chip-tr">
+            <span class="chip-icon">🔍</span> Transparent
+          </span>
+        </div>
+
+      </div><!-- /hero-left -->
+
+      <!-- ── RIGHT COLUMN - Dashboard Visualization ── -->
+      <div class="hero-right">
+        <div class="dashboard-glow"></div>
+
+        <div class="dashboard-card">
+
+          <!-- Dashboard Header -->
+          <div class="dashboard-header">
+            <div class="dash-platform">
+              <div class="mini-logo">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="5.5" stroke="white" stroke-width="1.4"/>
+                  <path d="M4.5 7 L6.3 9 L9.5 5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span>CivicResolve AI</span>
+            </div>
+            <div class="dash-live">
+              <span class="live-dot"></span> Live
+            </div>
+          </div>
+
+          <!-- Issue Card -->
+          <div class="issue-card">
+            <div class="issue-card-top">
+              <span class="issue-category">🚧 Infrastructure</span>
+              <span class="issue-id">#CR-2024-0892</span>
+            </div>
+            <div class="issue-title">Pothole near Main Road, Junction 4B</div>
+            <div class="issue-meta">
+              <span class="meta-tag tag-verified">✅ AI Verified</span>
+              <span class="meta-tag tag-priority">🔴 High Priority</span>
+              <span class="meta-tag tag-community">👥 32 Supports</span>
+              <span class="meta-tag tag-progress">⚡ In Progress</span>
+            </div>
+            <div class="progress-section">
+              <div class="progress-label">
+                <span>Resolution Progress</span>
+                <span id="progressPct">65%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resolution Timeline -->
+          <div class="timeline-section">
+            <div class="timeline-title">📅 Resolution Timeline</div>
+            <div class="timeline" id="heroTimeline">
+              <div class="t-step" data-state="done">
+                <div class="t-dot">
+                  <svg viewBox="0 0 10 10"><path d="M1.5 5 L4 7.5 L8.5 2.5"/></svg>
+                </div>
+                <div class="t-label">Reported</div>
+              </div>
+              <div class="t-step" data-state="done">
+                <div class="t-dot">
+                  <svg viewBox="0 0 10 10"><path d="M1.5 5 L4 7.5 L8.5 2.5"/></svg>
+                </div>
+                <div class="t-label">AI Verified</div>
+              </div>
+              <div class="t-step" data-state="done">
+                <div class="t-dot">
+                  <svg viewBox="0 0 10 10"><path d="M1.5 5 L4 7.5 L8.5 2.5"/></svg>
+                </div>
+                <div class="t-label">Authority</div>
+              </div>
+              <div class="t-step" data-state="current">
+                <div class="t-dot">⚡</div>
+                <div class="t-label">In Action</div>
+              </div>
+              <div class="t-step" data-state="pending">
+                <div class="t-dot"></div>
+                <div class="t-label">Resolved</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Analysis Cards -->
+          <div class="float-cards">
+            <div class="float-card">
+              <div class="fc-icon fc-ai">🤖</div>
+              <div class="fc-content">
+                <div class="fc-title">AI Analysis Complete</div>
+                <div class="fc-desc">Severity: High · Unique complaint verified</div>
+              </div>
+              <span class="fc-badge blue">Verified</span>
+            </div>
+            <div class="float-card">
+              <div class="fc-icon fc-com">👥</div>
+              <div class="fc-content">
+                <div class="fc-title">Community Support</div>
+                <div class="fc-desc">32 citizens confirmed this issue</div>
+              </div>
+              <span class="fc-badge green">+32</span>
+            </div>
+            <div class="float-card">
+              <div class="fc-icon fc-status">⚡</div>
+              <div class="fc-content">
+                <div class="fc-title">Current Status</div>
+                <div class="fc-desc">PWD team assigned · ETA 3 days</div>
+              </div>
+              <span class="fc-badge amber">Active</span>
+            </div>
+          </div>
+
+        </div><!-- /dashboard-card -->
+      </div><!-- /hero-right -->
+
+    </div><!-- /hero-grid -->
+  </div><!-- /container -->
+</section>
+
+
+
+
+<!-- ============================================================
+     ABOUT SECTION
+     ============================================================ -->
+<section id="about">
+  <div class="bg-grid"></div>
+
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- ── LEFT COLUMN ── -->
+      <div class="about-left reveal-left">
+
+        <span class="section-label">
+          <span class="dot"></span>
+          About CivicResolve AI
+        </span>
+
+        <h2 class="display-2 about-headline">
+          A Smarter Way to<br/>
+          <span class="text-gradient">Resolve Civic Issues.</span>
+        </h2>
+
+        <p class="about-desc">
+          <strong>More than a complaint portal.</strong> CivicResolve AI manages every civic issue from first report to verified resolution - transparently.
+        </p>
+
+        <!-- Key Points -->
+        <div class="about-points">
+
+          <div class="about-point reveal delay-1">
+            <div class="ap-icon" style="background:rgba(21,101,192,0.1)">🧠</div>
+            <div class="ap-text">
+              <div class="ap-title">AI-Powered Understanding</div>
+              <div class="ap-desc">Classifies, prioritises and deduplicates every complaint instantly.</div>
+            </div>
+          </div>
+
+          <div class="about-point reveal delay-2">
+            <div class="ap-icon" style="background:rgba(0,180,216,0.1)">🏛️</div>
+            <div class="ap-text">
+              <div class="ap-title">Direct Authority Routing</div>
+              <div class="ap-desc">Routes issues to the right department, cutting response times.</div>
+            </div>
+          </div>
+
+          <div class="about-point reveal delay-3">
+            <div class="ap-icon" style="background:rgba(29,185,84,0.1)">👥</div>
+            <div class="ap-text">
+              <div class="ap-title">Community Amplification</div>
+              <div class="ap-desc">Citizens boost complaints to raise priority for faster action.</div>
+            </div>
+          </div>
+
+          <div class="about-point reveal delay-4">
+            <div class="ap-icon" style="background:rgba(245,158,11,0.1)">📊</div>
+            <div class="ap-text">
+              <div class="ap-title">Transparent Tracking</div>
+              <div class="ap-desc">Real-time updates at every stage - no more chasing authorities.</div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /about-left -->
+
+      <!-- ── RIGHT COLUMN - Lifecycle Visual ── -->
+      <div class="about-right reveal-right">
+        <div class="lifecycle-visual">
+
+          <div class="lc-header">
+            <div class="lc-title">✦ Complete Issue Lifecycle</div>
+            <div class="lc-subtitle">From Report to Resolution</div>
+          </div>
+
+          <div class="lifecycle-steps">
+
+            <div class="lc-step lc-s1">
+              <div class="lc-icon">📝</div>
+              <div class="lc-content">
+                <div class="lc-name">Report</div>
+                <div class="lc-desc">Citizen files complaint with evidence</div>
+              </div>
+              <span class="lc-badge" style="background:rgba(21,101,192,0.1);color:var(--blue)">Step 1</span>
+            </div>
+
+            <div class="lc-step lc-s2">
+              <div class="lc-icon">🤖</div>
+              <div class="lc-content">
+                <div class="lc-name">AI Analysis</div>
+                <div class="lc-desc">NLP classifies, deduplicates &amp; scores</div>
+              </div>
+              <span class="lc-badge" style="background:rgba(124,58,237,0.1);color:var(--purple)">Auto</span>
+            </div>
+
+            <div class="lc-step lc-s3">
+              <div class="lc-icon">👥</div>
+              <div class="lc-content">
+                <div class="lc-name">Community Support</div>
+                <div class="lc-desc">Citizens upvote to raise priority</div>
+              </div>
+              <span class="lc-badge" style="background:rgba(0,180,216,0.1);color:var(--cyan)">Open</span>
+            </div>
+
+            <div class="lc-step lc-s4">
+              <div class="lc-icon">🏛️</div>
+              <div class="lc-content">
+                <div class="lc-name">Authority Routing</div>
+                <div class="lc-desc">Smart dispatch to correct department</div>
+              </div>
+              <span class="lc-badge" style="background:rgba(239,68,68,0.09);color:var(--danger)">Urgent</span>
+            </div>
+
+            <div class="lc-step lc-s5">
+              <div class="lc-icon">⚡</div>
+              <div class="lc-content">
+                <div class="lc-name">Action</div>
+                <div class="lc-desc">Field team deployed with ETA</div>
+              </div>
+              <span class="lc-badge" style="background:rgba(245,158,11,0.1);color:#B45309">Active</span>
+            </div>
+
+            <div class="lc-step lc-s6">
+              <div class="lc-icon">✅</div>
+              <div class="lc-content">
+                <div class="lc-name">Resolution</div>
+                <div class="lc-desc">Issue fixed &amp; documented</div>
+              </div>
+              <span class="lc-badge" style="background:rgba(29,185,84,0.12);color:var(--success)">Done</span>
+            </div>
+
+            <div class="lc-step lc-s7">
+              <div class="lc-icon">🔍</div>
+              <div class="lc-content">
+                <div class="lc-name">Citizen Verification</div>
+                <div class="lc-desc">Community confirms the fix</div>
+              </div>
+              <span class="lc-badge" style="background:rgba(11,31,58,0.08);color:var(--navy)">Final</span>
+            </div>
+
+          </div><!-- /lifecycle-steps -->
+
+        </div><!-- /lifecycle-visual -->
+      </div><!-- /about-right -->
+
+    </div><!-- /about-grid -->
+  </div><!-- /container -->
+</section>
+
+
+<!-- ============================================================
+     HOW IT WORKS SECTION
+     ============================================================ -->
+<section id="how-it-works">
+  <div class="bg-grid"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="hiw-header reveal">
+      <span class="section-label"><span class="dot"></span>How It Works</span>
+      <h2 class="display-2">From Complaint to <span class="text-gradient">Resolution.</span></h2>
+      <p>Six steps - from citizen report to community-verified resolution.</p>
+    </div>
+
+    <!-- Timeline Steps -->
+    <div class="hiw-timeline" id="hiwTimeline">
+
+      <!-- Step 01 -->
+      <div class="hiw-step hiw-s1 reveal delay-1">
+        <div class="hiw-step-num">
+          <div class="num-inner">📝</div>
+        </div>
+        <div class="hiw-step-body">
+          <div class="hiw-step-label">01 -  Report</div>
+          <div class="hiw-step-title">Citizen Files a Complaint</div>
+          <div class="hiw-step-desc">Photo, location and description - done in under 60 seconds.</div>
+          <span class="hiw-step-tag" style="background:rgba(21,101,192,0.08);color:var(--blue)">📍 Geo-tagged</span>
+        </div>
+      </div>
+
+      <!-- Step 02 -->
+      <div class="hiw-step hiw-s2 reveal delay-2">
+        <div class="hiw-step-num">
+          <div class="num-inner">🤖</div>
+        </div>
+        <div class="hiw-step-body">
+          <div class="hiw-step-label">02 -  AI Understands</div>
+          <div class="hiw-step-title">AI Reads &amp; Classifies</div>
+          <div class="hiw-step-desc">Categorises, scores severity and checks duplicates in &lt;2s.</div>
+          <span class="hiw-step-tag" style="background:rgba(124,58,237,0.09);color:var(--purple)">⚡ &lt;2 seconds</span>
+        </div>
+      </div>
+
+      <!-- Step 03 -->
+      <div class="hiw-step hiw-s3 reveal delay-3">
+        <div class="hiw-step-num">
+          <div class="num-inner">👥</div>
+        </div>
+        <div class="hiw-step-body">
+          <div class="hiw-step-label">03 -  Boost or Create</div>
+          <div class="hiw-step-title">Community Amplifies</div>
+          <div class="hiw-step-desc">Boosts raise an issue's priority for faster authority response.</div>
+          <span class="hiw-step-tag" style="background:rgba(0,180,216,0.1);color:#0077A6">👍 Public vote</span>
+        </div>
+      </div>
+
+      <!-- Step 04 -->
+      <div class="hiw-step hiw-s4 reveal delay-4">
+        <div class="hiw-step-num">
+          <div class="num-inner">🏛️</div>
+        </div>
+        <div class="hiw-step-body">
+          <div class="hiw-step-label">04 -  Authority Routing</div>
+          <div class="hiw-step-title">Smart Department Dispatch</div>
+          <div class="hiw-step-desc">Routed to the exact authority with priority flag attached.</div>
+          <span class="hiw-step-tag" style="background:rgba(239,68,68,0.08);color:var(--danger)">🔴 High priority</span>
+        </div>
+      </div>
+
+      <!-- Step 05 -->
+      <div class="hiw-step hiw-s5 reveal delay-5">
+        <div class="hiw-step-num">
+          <div class="num-inner">📊</div>
+        </div>
+        <div class="hiw-step-body">
+          <div class="hiw-step-label">05 -  Track &amp; Escalate</div>
+          <div class="hiw-step-title">Live Progress Dashboard</div>
+          <div class="hiw-step-desc">Stalled issues auto-escalate to senior officials on deadline.</div>
+          <span class="hiw-step-tag" style="background:rgba(245,158,11,0.1);color:#B45309">⏱ Auto-escalate</span>
+        </div>
+      </div>
+
+      <!-- Step 06 -->
+      <div class="hiw-step hiw-s6 reveal delay-6">
+        <div class="hiw-step-num">
+          <div class="num-inner">✅</div>
+        </div>
+        <div class="hiw-step-body">
+          <div class="hiw-step-label">06 -  Resolve &amp; Verify</div>
+          <div class="hiw-step-title">Community Confirms the Fix</div>
+          <div class="hiw-step-desc">Citizens verify the resolution before the case is closed.</div>
+          <span class="hiw-step-tag" style="background:rgba(29,185,84,0.1);color:var(--success)">✓ Closed loop</span>
+        </div>
+      </div>
+
+    </div><!-- /hiw-timeline -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FEATURES SECTION
+     ============================================================ -->
+<section id="features">
+  <div class="bg-grid"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="feat-header reveal">
+      <span class="section-label"><span class="dot"></span>Platform Features</span>
+      <h2 class="display-2">Everything Needed for<br/><span class="text-gradient">Smarter Civic Resolution.</span></h2>
+      <p>Ten purpose-built capabilities that transform how citizens and governments collaborate on civic issues.</p>
+    </div>
+
+    <!-- Feature Cards Grid -->
+    <div class="feat-grid">
+
+      <!-- Featured card - AI Classification (wide) -->
+      <div class="feat-card feat-featured reveal delay-1">
+        <div class="feat-icon">🧠</div>
+        <div>
+          <div class="feat-card-title">AI Issue Classification</div>
+          <div class="feat-card-desc">Our NLP engine automatically reads every complaint, categorises it into the correct civic domain, assigns a severity score and flags it with the right department - all within two seconds of submission, without any human intervention.</div>
+          <span class="feat-card-tag" style="background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.9)">🤖 Core AI Engine</span>
+        </div>
+      </div>
+
+      <!-- Duplicate Detection -->
+      <div class="feat-card reveal delay-2">
+        <div class="feat-icon" style="background:rgba(124,58,237,0.1)">🔄</div>
+        <div class="feat-card-title">Duplicate Issue Detection</div>
+        <div class="feat-card-desc">Semantic similarity matching prevents the same pothole from flooding the system. Citizens are redirected to support existing reports instead.</div>
+        <span class="feat-card-tag" style="background:rgba(124,58,237,0.1);color:var(--purple)">Zero duplicates</span>
+      </div>
+
+      <!-- Community Boosting -->
+      <div class="feat-card reveal delay-3">
+        <div class="feat-icon" style="background:rgba(0,180,216,0.1)">🚀</div>
+        <div class="feat-card-title">Community Boosting</div>
+        <div class="feat-card-desc">Citizens upvote issues they've personally witnessed. Boost scores directly influence priority queues, turning collective voice into measurable action.</div>
+        <span class="feat-card-tag" style="background:rgba(0,180,216,0.1);color:#0077A6">👥 Crowd-powered</span>
+      </div>
+
+      <!-- Smart Authority Routing - wide -->
+      <div class="feat-card feat-wide reveal delay-2">
+        <div class="feat-icon" style="background:rgba(239,68,68,0.08);flex-shrink:0">🏛️</div>
+        <div>
+          <div class="feat-card-title">Smart Authority Routing</div>
+          <div class="feat-card-desc">Machine learning maps each issue type to the responsible municipal body and routes it with full context - location, evidence, priority - so no issue lands in the wrong inbox.</div>
+          <span class="feat-card-tag" style="background:rgba(239,68,68,0.08);color:var(--danger)">⚡ Instant dispatch</span>
+        </div>
+      </div>
+
+      <!-- Evidence-Based Reporting - wide -->
+      <div class="feat-card feat-wide reveal delay-3">
+        <div class="feat-icon" style="background:rgba(21,101,192,0.1);flex-shrink:0">📎</div>
+        <div>
+          <div class="feat-card-title">Evidence-Based Reporting</div>
+          <div class="feat-card-desc">Attach photos, videos and GPS coordinates to every complaint. AI validates evidence quality and auto-generates a structured report that authorities can act on immediately.</div>
+          <span class="feat-card-tag" style="background:rgba(21,101,192,0.1);color:var(--blue)">📍 Geo-verified</span>
+        </div>
+      </div>
+
+      <!-- Live Issue Tracking -->
+      <div class="feat-card reveal delay-1">
+        <div class="feat-icon" style="background:rgba(29,185,84,0.1)">📡</div>
+        <div class="feat-card-title">Live Issue Tracking</div>
+        <div class="feat-card-desc">Real-time status updates push directly to citizens. Every stage change - from assignment to resolution - is timestamped and visible.</div>
+        <span class="feat-card-tag" style="background:rgba(29,185,84,0.1);color:var(--success)">🔴 Live feed</span>
+      </div>
+
+      <!-- Escalation Workflow -->
+      <div class="feat-card reveal delay-2">
+        <div class="feat-icon" style="background:rgba(245,158,11,0.1)">⚠️</div>
+        <div class="feat-card-title">Escalation Workflow</div>
+        <div class="feat-card-desc">Issues that exceed SLA deadlines automatically escalate to senior officials with a full audit trail, ensuring accountability at every level.</div>
+        <span class="feat-card-tag" style="background:rgba(245,158,11,0.1);color:#B45309">⏱ SLA enforced</span>
+      </div>
+
+      <!-- Citizen Verification -->
+      <div class="feat-card reveal delay-3">
+        <div class="feat-icon" style="background:rgba(21,101,192,0.1)">🔍</div>
+        <div class="feat-card-title">Citizen Verification</div>
+        <div class="feat-card-desc">Resolution isn't closed until the community confirms the fix. This creates a genuine feedback loop between citizens and authorities.</div>
+        <span class="feat-card-tag" style="background:rgba(21,101,192,0.1);color:var(--blue)">✓ Verified close</span>
+      </div>
+
+      <!-- AI Civic Assistant -->
+      <div class="feat-card reveal delay-4">
+        <div class="feat-icon" style="background:rgba(124,58,237,0.1)">💬</div>
+        <div class="feat-card-title">AI Civic Assistant</div>
+        <div class="feat-card-desc">A conversational AI guides citizens through reporting, answers status queries in natural language and suggests the right category - in multiple Indian languages.</div>
+        <span class="feat-card-tag" style="background:rgba(124,58,237,0.1);color:var(--purple)">🌐 Multilingual</span>
+      </div>
+
+    </div><!-- /feat-grid -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CATEGORIES SECTION
+     ============================================================ -->
+<section id="categories">
+  <div class="bg-grid"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <div class="cat-header reveal">
+      <span class="section-label"><span class="dot"></span>Issue Categories</span>
+      <h2 class="display-2">One Platform for Everyday<br/><span class="text-gradient">Civic Problems.</span></h2>
+      <p>From broken streetlights to flooding roads - CivicResolve AI handles every type of civic complaint with precision and speed.</p>
+    </div>
+
+    <!-- Category Cards -->
+    <div class="cat-grid">
+
+      <!-- Roads & Potholes -->
+      <div class="cat-card reveal delay-1">
+        <div class="cat-icon-wrap" style="background:rgba(239,68,68,0.08)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="12" width="24" height="5" rx="2.5" fill="#EF4444" opacity="0.85"/>
+            <circle cx="8" cy="20" r="3" fill="#EF4444"/>
+            <circle cx="20" cy="20" r="3" fill="#EF4444"/>
+            <path d="M2 12 Q5 6 14 6 Q23 6 26 12" stroke="#EF4444" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Roads &amp; Potholes</div>
+        <div class="cat-card-desc">Damaged road surfaces, dangerous potholes, unmarked speed breakers and encroachments on public roads.</div>
+        <span class="cat-card-count">4,210 issues tracked</span>
+      </div>
+
+      <!-- Garbage & Sanitation -->
+      <div class="cat-card reveal delay-2">
+        <div class="cat-icon-wrap" style="background:rgba(29,185,84,0.09)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 10 L8 22 H20 L23 10 Z" fill="#1DB954" opacity="0.9"/>
+            <path d="M3 10 H25" stroke="#1DB954" stroke-width="2" stroke-linecap="round"/>
+            <path d="M11 10 V7 Q14 4 17 7 V10" stroke="#1DB954" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="11" y1="14" x2="11" y2="19" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14" y1="14" x2="14" y2="19" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="17" y1="14" x2="17" y2="19" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Garbage &amp; Sanitation</div>
+        <div class="cat-card-desc">Overflowing bins, illegal dumping, missed collection schedules and unhygienic public spaces in your neighbourhood.</div>
+        <span class="cat-card-count">3,870 issues tracked</span>
+      </div>
+
+      <!-- Streetlights -->
+      <div class="cat-card reveal delay-3">
+        <div class="cat-icon-wrap" style="background:rgba(245,158,11,0.1)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="11" r="5" fill="#F59E0B"/>
+            <path d="M14 6 V3M14 19 V16M6 11 H3M25 11 H22M8.5 8.5 L6.4 6.4M21.6 6.4 L19.5 8.5" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+            <rect x="12" y="18" width="4" height="7" rx="1" fill="#F59E0B" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Streetlights</div>
+        <div class="cat-card-desc">Non-functional streetlights, flickering lamps, damaged poles and poorly lit roads that compromise public safety at night.</div>
+        <span class="cat-card-count">2,145 issues tracked</span>
+      </div>
+
+      <!-- Water & Drainage -->
+      <div class="cat-card reveal delay-4">
+        <div class="cat-icon-wrap" style="background:rgba(0,180,216,0.1)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 3 C14 3 7 11 7 16 C7 19.87 10.13 23 14 23 C17.87 23 21 19.87 21 16 C21 11 14 3 14 3Z" fill="#00B4D8" opacity="0.9"/>
+            <path d="M10 18 Q12 15 14 18 Q16 21 18 18" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Water &amp; Drainage</div>
+        <div class="cat-card-desc">Water supply disruptions, pipeline leaks, blocked drains, sewage overflow and stagnant water causing health hazards.</div>
+        <span class="cat-card-count">2,980 issues tracked</span>
+      </div>
+
+      <!-- Public Infrastructure -->
+      <div class="cat-card reveal delay-1">
+        <div class="cat-icon-wrap" style="background:rgba(21,101,192,0.09)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="14" width="22" height="10" rx="2" fill="#1565C0" opacity="0.15" stroke="#1565C0" stroke-width="1.5"/>
+            <rect x="9" y="8" width="10" height="8" rx="1.5" fill="#1565C0" opacity="0.2" stroke="#1565C0" stroke-width="1.5"/>
+            <rect x="12" y="4" width="4" height="5" rx="1" fill="#1565C0" opacity="0.3" stroke="#1565C0" stroke-width="1.5"/>
+            <rect x="6" y="17" width="4" height="5" rx="1" fill="#1565C0"/>
+            <rect x="12" y="17" width="4" height="5" rx="1" fill="#1565C0"/>
+            <rect x="18" y="17" width="4" height="5" rx="1" fill="#1565C0"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Public Infrastructure</div>
+        <div class="cat-card-desc">Crumbling footpaths, broken public benches, damaged bus stops, graffiti on public property and unauthorised construction.</div>
+        <span class="cat-card-count">1,560 issues tracked</span>
+      </div>
+
+      <!-- Traffic & Transport -->
+      <div class="cat-card reveal delay-2">
+        <div class="cat-icon-wrap" style="background:rgba(124,58,237,0.09)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="10" stroke="#7C3AED" stroke-width="1.8" fill="none"/>
+            <circle cx="14" cy="10" r="2.5" fill="#EF4444"/>
+            <circle cx="14" cy="17" r="2.5" fill="#F59E0B"/>
+            <circle cx="14" cy="24" r="2.5" fill="#1DB954"/>
+            <line x1="4" y1="10" x2="11.5" y2="10" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="16.5" y1="10" x2="24" y2="10" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Traffic &amp; Transport</div>
+        <div class="cat-card-desc">Broken traffic signals, missing road signs, illegal parking, dangerous intersections and public transport failures.</div>
+        <span class="cat-card-count">1,890 issues tracked</span>
+      </div>
+
+      <!-- Parks & Public Spaces -->
+      <div class="cat-card reveal delay-3">
+        <div class="cat-icon-wrap" style="background:rgba(29,185,84,0.09)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 5 Q17 9 14 13 Q11 9 14 5Z" fill="#1DB954"/>
+            <path d="M19 8 Q22 12 18 15 Q17 12 19 8Z" fill="#1DB954" opacity="0.7"/>
+            <path d="M9 8 Q6 12 10 15 Q11 12 9 8Z" fill="#1DB954" opacity="0.7"/>
+            <rect x="12" y="13" width="4" height="10" rx="1" fill="#1DB954" opacity="0.8"/>
+            <rect x="3" y="22" width="22" height="3" rx="1.5" fill="#1DB954" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Parks &amp; Public Spaces</div>
+        <div class="cat-card-desc">Neglected parks, broken playground equipment, missing greenery, overgrown vegetation and encroached public land.</div>
+        <span class="cat-card-count">1,230 issues tracked</span>
+      </div>
+
+      <!-- Other Civic Issues -->
+      <div class="cat-card reveal delay-4">
+        <div class="cat-icon-wrap" style="background:rgba(11,31,58,0.07)">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="20" height="20" rx="3" stroke="#0B1F3A" stroke-width="1.8" fill="none"/>
+            <line x1="8" y1="10" x2="20" y2="10" stroke="#0B1F3A" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="8" y1="14" x2="20" y2="14" stroke="#0B1F3A" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="8" y1="18" x2="14" y2="18" stroke="#0B1F3A" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="21" cy="21" r="4" fill="#1976D2"/>
+            <line x1="21" y1="19.5" x2="21" y2="21" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="21" cy="22.5" r="0.7" fill="white"/>
+          </svg>
+        </div>
+        <div class="cat-card-title">Other Civic Issues</div>
+        <div class="cat-card-desc">Noise pollution, stray animal menace, abandoned vehicles, unlicensed hoardings and any other issue affecting your community.</div>
+        <span class="cat-card-count">980 issues tracked</span>
+      </div>
+
+    </div><!-- /cat-grid -->
+
+    <!-- CTA -->
+    <div class="cat-cta reveal">
+      <a href="login.html" class="btn btn-primary btn-lg">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1v16M1 9h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        Report an Issue Now
+      </a>
+      <p>Join <strong>48,000+ citizens</strong> already making their city better.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     Q&A SECTION
+     ============================================================ -->
+<section id="qa">
+  <div class="bg-grid"></div>
+  <div class="container">
+    <div class="qa-inner">
+
+      <!-- Left - sticky heading -->
+      <div class="qa-left reveal-left">
+        <span class="section-label"><span class="dot"></span>Q &amp; A</span>
+        <h2 class="display-2">Questions?<br/><span class="text-gradient">We've Got Answers.</span></h2>
+        <p>Everything you need to know about reporting, tracking and resolving civic issues with CivicResolve AI.</p>
+
+        <div class="qa-contact-card">
+          <div class="qa-contact-icon">💬</div>
+          <div class="qa-contact-text">
+            <div class="qa-ct-title">Still have questions?</div>
+            <div class="qa-ct-desc">Reach us at <a href="mailto:support@civicresolve.ai">support@civicresolve.ai</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right - accordion -->
+      <div class="qa-accordion reveal-right" id="qaAccordion">
+
+        <!-- Q1 -->
+        <div class="qa-item open">
+          <button class="qa-question" aria-expanded="true">
+            <span class="qa-q-text">What is CivicResolve AI?</span>
+            <span class="qa-chevron"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5l5 5 5-5"/></svg></span>
+          </button>
+          <div class="qa-answer" style="max-height:300px">
+            <div class="qa-answer-inner">An AI-powered platform that connects citizens with authorities to report, track and resolve civic issues transparently.</div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="qa-item">
+          <button class="qa-question" aria-expanded="false">
+            <span class="qa-q-text">How do I report a civic issue?</span>
+            <span class="qa-chevron"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5l5 5 5-5"/></svg></span>
+          </button>
+          <div class="qa-answer">
+            <div class="qa-answer-inner">Click <strong>Report an Issue</strong>, describe the problem, attach a photo and pin the location - done in under 60 seconds.</div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="qa-item">
+          <button class="qa-question" aria-expanded="false">
+            <span class="qa-q-text">What does "Boost Issue" mean?</span>
+            <span class="qa-chevron"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5l5 5 5-5"/></svg></span>
+          </button>
+          <div class="qa-answer">
+            <div class="qa-answer-inner">Boosting confirms you've witnessed the same issue - raising its priority score so it gets resolved faster.</div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="qa-item">
+          <button class="qa-question" aria-expanded="false">
+            <span class="qa-q-text">What if an issue is not acted upon?</span>
+            <span class="qa-chevron"><svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.5l5 5 5-5"/></svg></span>
+          </button>
+          <div class="qa-answer">
+            <div class="qa-answer-inner">Issues that miss their SLA deadline are automatically escalated to senior officials with a full audit trail.</div>
+          </div>
+        </div>
+
+      </div><!-- /qa-accordion -->
+    </div><!-- /qa-inner -->
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FINAL CTA SECTION
+     ============================================================ -->
+<section id="cta-final">
+
+  <!-- Animated civic-network background -->
+  <div class="cta-bg-canvas" aria-hidden="true">
+    <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <!-- connecting lines -->
+      <line class="cta-line" x1="100" y1="100" x2="400" y2="200" stroke="#42A5F5" stroke-width="1.5"/>
+      <line class="cta-line" x1="400" y1="200" x2="700" y2="130" stroke="#42A5F5" stroke-width="1.5"/>
+      <line class="cta-line" x1="700" y1="130" x2="1000" y2="220" stroke="#00B4D8" stroke-width="1.5"/>
+      <line class="cta-line" x1="1000" y1="220" x2="1150" y2="120" stroke="#00B4D8" stroke-width="1.5"/>
+      <line class="cta-line" x1="200" y1="350" x2="500" y2="310" stroke="#42A5F5" stroke-width="1.5"/>
+      <line class="cta-line" x1="500" y1="310" x2="800" y2="370" stroke="#1976D2" stroke-width="1.5"/>
+      <line class="cta-line" x1="800" y1="370" x2="1050" y2="340" stroke="#1976D2" stroke-width="1.5"/>
+      <line class="cta-line" x1="100" y1="100" x2="200" y2="350" stroke="#42A5F5" stroke-width="1"/>
+      <line class="cta-line" x1="400" y1="200" x2="500" y2="310" stroke="#42A5F5" stroke-width="1"/>
+      <line class="cta-line" x1="700" y1="130" x2="800" y2="370" stroke="#00B4D8" stroke-width="1"/>
+      <line class="cta-line" x1="1000" y1="220" x2="1050" y2="340" stroke="#1976D2" stroke-width="1"/>
+      <!-- location pin circles -->
+      <circle class="cta-node" cx="100"  cy="100" r="6" fill="#42A5F5"/>
+      <circle class="cta-node" cx="400"  cy="200" r="6" fill="#1976D2"/>
+      <circle class="cta-node" cx="700"  cy="130" r="6" fill="#00B4D8"/>
+      <circle class="cta-node" cx="1000" cy="220" r="6" fill="#42A5F5"/>
+      <circle class="cta-node" cx="1150" cy="120" r="6" fill="#00B4D8"/>
+      <circle class="cta-node" cx="200"  cy="350" r="6" fill="#1976D2"/>
+      <circle class="cta-node" cx="500"  cy="310" r="6" fill="#42A5F5"/>
+      <circle class="cta-node" cx="800"  cy="370" r="6" fill="#00B4D8"/>
+      <circle class="cta-node" cx="1050" cy="340" r="6" fill="#1976D2"/>
+      <!-- outer glow rings -->
+      <circle cx="100"  cy="100" r="16" fill="none" stroke="#42A5F5" stroke-width="1" opacity="0.3"/>
+      <circle cx="700"  cy="130" r="16" fill="none" stroke="#00B4D8" stroke-width="1" opacity="0.3"/>
+      <circle cx="1000" cy="220" r="16" fill="none" stroke="#42A5F5" stroke-width="1" opacity="0.3"/>
+      <circle cx="500"  cy="310" r="16" fill="none" stroke="#42A5F5" stroke-width="1" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="cta-inner">
+
+      <div class="cta-eyebrow">
+        <span class="dot"></span>
+        Take Action Today
+      </div>
+
+      <h2 class="cta-headline">
+        See a Problem?<br/>
+        Make It <span class="line-cyan">Visible.</span>
+      </h2>
+
+      <p class="cta-subtext">
+        Report civic issues, support your community, and follow every step toward resolution - with the power of AI behind every complaint.
+      </p>
+
+      <div class="cta-actions">
+        <a href="login.html" class="btn-cta-primary">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 1v16M1 9h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          Report an Issue
+        </a>
+        <button class="btn-cta-secondary">
+          Explore CivicResolve
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Col 1 - Brand -->
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">
+          <div class="f-logo-icon">
+            <img src="CivicResolve Logo.png" alt="CivicResolve AI Logo" class="logo-img footer-logo-img"/>
+          </div>
+          <div class="f-brand-text">
+            <div class="f-brand-name">Civic<span>Resolve</span> AI</div>
+            <div class="f-tagline">Civic Intelligence Platform</div>
+          </div>
+        </a>
+
+        <p class="footer-desc">
+          Connecting citizens with authorities through AI. Turning civic problems into resolved actions - transparently, accountably and at scale.
+        </p>
+
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Twitter / X">𝕏</a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-btn" aria-label="GitHub">⌥</a>
+          <a href="#" class="social-btn" aria-label="Email">✉</a>
+        </div>
+      </div>
+
+      <!-- Col 2 - Navigation -->
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#qa">Q &amp; A</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 - Platform -->
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="login.html?role=citizen">Report an Issue</a></li>
+          <li><a href="login.html?role=citizen">Community Issues</a></li>
+          <li><a href="login.html?role=citizen">Track Issue</a></li>
+          <li><a href="login.html?role=admin">Admin Portal</a></li>
+          <li><a href="login.html?role=officer">Officer Portal</a></li>
+          <li><a href="login.html">Sign In</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4 - Newsletter -->
+      <div class="footer-col footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Get notified about new features, civic AI research and platform updates.</p>
+        <div class="footer-email-form">
+          <input type="email" placeholder="your@email.com" aria-label="Email address"/>
+          <button type="submit">Subscribe</button>
+        </div>
+      </div>
+
+    </div><!-- /footer-grid -->
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        © 2026 CivicResolve AI. All rights reserved. &nbsp;·&nbsp;
+        <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="#">Terms of Use</a>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Sitemap</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+
+<script src="script.js"></script>
+<script>
+  /* ── Session-aware nav links ──────────────────────────────
+     If the user is already logged in, clicking "Login" or
+     "Report an Issue" in the navbar takes them straight back
+     to their dashboard instead of the login page.
+  ─────────────────────────────────────────────────────────── */
+  (function () {
+    try {
+      var roleKey = localStorage.getItem('cr_role') || localStorage.getItem('civicRole') || '';
+      var apiRole = localStorage.getItem('cr_api_role') || '';
+      var userId  = localStorage.getItem('cr_user_id')  || '';
+      if (!roleKey || !apiRole || !userId) return; // not logged in
+
+      var dashMap = {
+        citizen: 'citizen-dashboard.html',
+        admin:   'admin-dashboard.html',
+        officer: 'officer-dashboard.html'
+      };
+      var dest = dashMap[roleKey.toLowerCase()];
+      if (!dest) return;
+
+      /* Rewire every login.html anchor that isn't a role-specific link */
+      document.querySelectorAll('a[href="login.html"]').forEach(function (a) {
+        a.href = dest;
+        /* Update button labels to reflect logged-in state */
+        var txt = (a.textContent || '').trim();
+        if (txt === 'Login') a.textContent = 'My Dashboard';
+      });
+
+    } catch (e) {}
+  }());
+</script>
+</body>
+</html>

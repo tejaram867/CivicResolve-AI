@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Command Center — Civic Resolve AI</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-layout">
+
+  <!-- Mobile top bar -->
+  <header class="admin-topbar">
+    <a href="index.html" class="brand">
+      <img src="CivicResolve Logo.png" alt="CivicResolve AI" class="brand-logo-img" />
+      Civic Resolve <span class="accent">AI</span>
+    </a>
+    <button class="admin-sidebar-toggle" id="adminSidebarToggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <!-- Left Sidebar -->
+  <aside class="admin-sidebar" id="adminSidebar">
+
+    <!-- Brand -->
+    <div class="admin-sidebar-brand">
+      <a href="index.html" class="brand admin-brand-link">
+        <img src="CivicResolve Logo.png" alt="CivicResolve AI" class="brand-logo-img" />
+        <span class="admin-brand-text">Civic Resolve <span class="accent">AI</span></span>
+      </a>
+    </div>
+
+    <!-- Profile -->
+    <div class="admin-sidebar-profile">
+      <div style="position:relative;">
+        <button class="admin-profile-btn" id="profileBtn">
+          <span class="avatar" style="background:linear-gradient(135deg,#7c3aed,#4c1d95)">AD</span>
+          <span class="admin-profile-info">
+            <strong>Admin</strong>
+            <small>Command Center</small>
+          </span>
+        </button>
+        <div class="dropdown-panel" id="profilePanel" style="width:220px;top:calc(100% + 8px);left:0;right:auto;">
+          <div class="dropdown-header">Admin Profile</div>
+          <div style="padding:1rem;font-size:0.9rem;">
+            <p><strong>Preethi Nair</strong></p>
+            <p style="color:var(--slate-500);">Chennai Jurisdiction</p>
+            <p style="margin-top:0.5rem;color:var(--slate-500);">admin@civicresolve.ai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="admin-sidebar-nav" aria-label="Admin navigation">
+      <button class="admin-sidebar-link active" data-panel="dashboard">
+        <span class="admin-sidebar-icon">🏛️</span>
+        <span class="admin-sidebar-label" data-i18n="nav_dashboard">Dashboard</span>
+      </button>
+      <button class="admin-sidebar-link" data-panel="priority">
+        <span class="admin-sidebar-icon">🤖</span>
+        <span class="admin-sidebar-label" data-i18n="nav_priority">AI Priority Queue</span>
+      </button>
+      <button class="admin-sidebar-link" data-panel="clusters">
+        <span class="admin-sidebar-icon">🧩</span>
+        <span class="admin-sidebar-label" data-i18n="nav_clusters">Duplicate Clusters</span>
+      </button>
+      <button class="admin-sidebar-link" data-panel="map">
+        <span class="admin-sidebar-icon">🗺️</span>
+        <span class="admin-sidebar-label" data-i18n="nav_map">Civic Map</span>
+      </button>
+      <button class="admin-sidebar-link" data-panel="assignments">
+        <span class="admin-sidebar-icon">👤</span>
+        <span class="admin-sidebar-label" data-i18n="nav_assignments">Assignments</span>
+      </button>
+      <button class="admin-sidebar-link" data-panel="sla">
+        <span class="admin-sidebar-icon">⏰</span>
+        <span class="admin-sidebar-label" data-i18n="nav_sla">SLA Management</span>
+      </button>
+      <button class="admin-sidebar-link" data-panel="issues">
+        <span class="admin-sidebar-icon">📋</span>
+        <span class="admin-sidebar-label" data-i18n="nav_issues">Active Issues</span>
+      </button>
+      <button type="button" class="admin-sidebar-link" id="openAiBtn">
+        <span class="admin-sidebar-icon">🤖</span>
+        <span class="admin-sidebar-label" data-i18n="nav_ai">AI Assistant</span>
+      </button>
+    </nav>
+
+    <!-- Bottom -->
+    <div class="admin-sidebar-bottom">
+      <!-- Logout only -->
+      <a href="login.html" class="admin-sidebar-link admin-sidebar-logout" data-i18n="nav_logout">
+        <span class="admin-sidebar-icon">🚪</span>
+        <span class="admin-sidebar-label">Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Mobile overlay -->
+  <div class="admin-sidebar-overlay" id="adminSidebarOverlay"></div>
+
+  <!-- Page content -->
+  <div class="admin-content">
+
+    <!-- ══ PANEL: Dashboard ══ -->
+    <div class="admin-panel panel-active" id="panel-dashboard">
+
+      <!-- Dashboard top row: welcome left, actions right -->
+      <div class="admin-dash-toprow">
+        <section class="welcome" style="margin-bottom:0;">
+          <h1 id="welcomeTitle">Good Morning, Admin 👋</h1>
+          <p data-i18n="welcome_admin_sub">Monitor, prioritize and coordinate civic issues across your jurisdiction.</p>
+        </section>
+
+        <div class="admin-dash-topactions">
+          <!-- Language selector -->
+          <select id="langSelect" class="admin-topbar-lang-select" aria-label="Language">
+            <option value="en">🌐 English</option>
+            <option value="ta">🌐 தமிழ்</option>
+            <option value="hi">🌐 हिन्दी</option>
+          </select>
+
+          <!-- Notification bell -->
+          <div style="position:relative;">
+            <button class="admin-notif-bell-btn" id="notifBtn" aria-label="Notifications" aria-expanded="false">
+              🔔
+              <span class="admin-notif-bell-badge" id="notifDot"></span>
+            </button>
+            <div class="admin-notif-dropdown" id="notifPanel">
+              <div class="notif-dropdown-header">
+                <span class="notif-dropdown-title">
+                  🔔 <strong data-i18n="notif_title">Notifications</strong>
+                  <span class="notif-count-pill" id="notifCountPill"></span>
+                </span>
+                <button class="btn btn-sm btn-ghost" id="markAllRead" data-i18n="notif_mark_all">Mark all read</button>
+              </div>
+              <div class="notif-dropdown-list" id="notifList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI strip -->
+      <div class="admin-kpi-strip" id="adminKpiStrip">
+        <div class="admin-kpi-card"><span class="admin-kpi-icon">📊</span><div><div class="admin-kpi-val">128</div><div class="admin-kpi-lbl">Total Active</div></div></div>
+        <div class="admin-kpi-card admin-kpi-danger"><span class="admin-kpi-icon">🔴</span><div><div class="admin-kpi-val">14</div><div class="admin-kpi-lbl">Critical</div></div></div>
+        <div class="admin-kpi-card admin-kpi-warning"><span class="admin-kpi-icon">🆕</span><div><div class="admin-kpi-val">23</div><div class="admin-kpi-lbl">New Today</div></div></div>
+        <div class="admin-kpi-card admin-kpi-ok"><span class="admin-kpi-icon">✅</span><div><div class="admin-kpi-val">86</div><div class="admin-kpi-lbl">Resolved</div></div></div>
+        <div class="admin-kpi-card admin-kpi-warning"><span class="admin-kpi-icon">⏰</span><div><div class="admin-kpi-val">7</div><div class="admin-kpi-lbl">SLA Risk</div></div></div>
+        <div class="admin-kpi-card admin-kpi-danger"><span class="admin-kpi-icon">🔁</span><div><div class="admin-kpi-val">5</div><div class="admin-kpi-lbl">Reopened</div></div></div>
+      </div>
+
+      <!-- Section summary boxes -->
+      <div class="dash-boxes-grid" id="kpiGrid"></div>
+
+      <!-- ── Analytics (inline in dashboard) ── -->
+      <div class="admin-analytics-section">
+        <div class="admin-panel-header" style="margin-top:1.75rem;">
+          <h2>📊 Analytics Snapshot</h2>
+          <p>Resolution trends and workload breakdown</p>
+        </div>
+        <div class="analytics-grid">
+          <div class="card analytics-card">
+            <h4>Resolution Trend</h4>
+            <div class="bar-chart" id="barChart"></div>
+          </div>
+          <div class="card analytics-card">
+            <h4>Category Mix</h4>
+            <div class="cat-bars" id="catBars"></div>
+          </div>
+          <div class="card analytics-card">
+            <h4>Avg Resolution Time</h4>
+            <div class="big-metric">36<span>hrs</span></div>
+            <p class="meta-muted">↓ 12% vs last week</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: AI Priority Queue ══ -->
+    <div class="admin-panel" id="panel-priority">
+      <div class="admin-panel-header">
+        <h2 data-i18n="admin_priority_title">🤖 AI Priority Queue</h2>
+        <p data-i18n="admin_priority_sub">Highest impact issues ranked by AI</p>
+      </div>
+      <div class="priority-grid" id="priorityQueue"></div>
+    </div>
+
+    <!-- ══ PANEL: Duplicate Clusters ══ -->
+    <div class="admin-panel" id="panel-clusters">
+      <div class="admin-panel-header">
+        <h2 data-i18n="admin_clusters_title">🧩 Duplicate &amp; Issue Clusters</h2>
+        <p data-i18n="admin_clusters_sub">Merge related reports into one work item</p>
+      </div>
+      <div id="clusterList"></div>
+    </div>
+
+    <!-- ══ PANEL: Civic Map ══ -->
+    <div class="admin-panel" id="panel-map">
+      <div class="admin-panel-header">
+        <h2 data-i18n="admin_map_title">🗺️ Civic Map</h2>
+        <p data-i18n="admin_map_sub">Live Google Map of open issues</p>
+      </div>
+      <div class="filters-row" id="mapFilters">
+        <select class="form-select" id="fCategory"><option value="">Category</option><option>Road</option><option>Drainage</option><option>Streetlight</option><option>Garbage</option></select>
+        <select class="form-select" id="fPriority"><option value="">Priority</option><option>P1</option><option>P2</option><option>P3</option><option>P4</option></select>
+        <select class="form-select" id="fCriticality"><option value="">Criticality</option><option>Critical</option><option>High</option><option>Medium</option><option>Low</option></select>
+        <select class="form-select" id="fStatus"><option value="">Status</option><option>New</option><option>Assigned</option><option>In Progress</option><option>Completed</option></select>
+        <select class="form-select" id="fWard"><option value="">Ward</option><option>Ward 12</option><option>Ward 8</option><option>Ward 15</option></select>
+        <select class="form-select" id="fDistrict"><option value="">District</option><option>Central</option><option>North</option><option>South</option></select>
+        <select class="form-select" id="fDate"><option value="">Date</option><option>Today</option><option>This Week</option><option>This Month</option></select>
+        <select class="form-select" id="fDept"><option value="">Department</option><option>Roads</option><option>Sanitation</option><option>Utilities</option></select>
+      </div>
+      <div class="mock-map admin-map cr-live-map" id="civicMap"></div>
+      <div class="map-legend" style="margin-top:0.75rem;">
+        <span class="l-p1" data-i18n="legend_critical">Critical</span>
+        <span class="l-p2" data-i18n="legend_high">High</span>
+        <span class="l-p3" data-i18n="legend_medium">Medium</span>
+        <span class="l-p4" data-i18n="legend_low">Low</span>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: Assignments ══ -->
+    <div class="admin-panel" id="panel-assignments">
+      <div class="admin-panel-header">
+        <h2 data-i18n="admin_assign_title">👤 Smart Assignment</h2>
+        <p data-i18n="admin_assign_sub">Match officers to prioritized work</p>
+      </div>
+      <div id="assignmentPanel"></div>
+    </div>
+
+    <!-- ══ PANEL: SLA Management ══ -->
+    <div class="admin-panel" id="panel-sla">
+      <div class="admin-panel-header">
+        <h2 data-i18n="admin_sla_title">⏰ SLA Management</h2>
+        <p data-i18n="admin_sla_sub">Track deadlines and overdue work</p>
+      </div>
+      <div class="sla-summary" id="slaSummary"></div>
+      <div class="sla-table-wrap" id="slaTable"></div>
+    </div>
+
+    <!-- ══ PANEL: Active Issues ══ -->
+    <div class="admin-panel" id="panel-issues">
+      <div class="admin-panel-header">
+        <h2 data-i18n="admin_issues_title">📋 Active Issues</h2>
+        <p data-i18n="admin_issues_sub">Browse and open issue details</p>
+      </div>
+      <div id="issuesList"></div>
+    </div>
+
+  </div><!-- /admin-content -->
+
+  <!-- Issue / Decision Modal -->
+  <div class="modal-overlay" id="adminIssueModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 id="adminIssueTitle">Issue</h3>
+        <button class="modal-close" data-close-modal="adminIssueModal">×</button>
+      </div>
+      <div class="modal-body" id="adminIssueBody"></div>
+      <div class="modal-footer" id="adminIssueFooter"></div>
+    </div>
+  </div>
+
+  <!-- Cluster Modal -->
+  <div class="modal-overlay" id="clusterModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 id="clusterTitle">Cluster</h3>
+        <button class="modal-close" data-close-modal="clusterModal">×</button>
+      </div>
+      <div class="modal-body" id="clusterBody"></div>
+    </div>
+  </div>
+
+  <!-- Assign Modal -->
+  <div class="modal-overlay" id="assignModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Assign Civic Officer</h3>
+        <button class="modal-close" data-close-modal="assignModal">×</button>
+      </div>
+      <div class="modal-body" id="assignBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close-modal="assignModal">Cancel</button>
+        <button class="btn btn-primary" id="confirmAssign">Confirm Assignment</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLA Timeline Modal -->
+  <div class="modal-overlay" id="slaModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="slaModalTitle">SLA Timeline</h3>
+        <button class="modal-close" data-close-modal="slaModal">×</button>
+      </div>
+      <div class="modal-body" id="slaModalBody"></div>
+    </div>
+  </div>
+
+  <!-- AI Modal -->
+  <div class="modal-overlay" id="aiModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>🤖 Admin AI Assistant</h3>
+        <button class="modal-close" data-close-modal="aiModal">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="ai-disclaimer">I assist with summaries and recommendations. <strong>I do not approve priorities, assign officers, or verify resolutions.</strong></p>
+        <div class="ai-panel">
+          <div class="ai-messages" id="aiMessages">
+            <div class="ai-bubble bot">Admin assistant ready. Ask about priority queues, clusters, SLA risk, or assignment suggestions.</div>
+          </div>
+          <div class="ai-quick" id="aiQuick">
+            <button data-q="Which issues need priority decisions?">Priority decisions?</button>
+            <button data-q="Summarize duplicate clusters">Duplicate clusters</button>
+            <button data-q="What is at SLA risk?">SLA risk</button>
+            <button data-q="Suggest officer for Ward 12 road issues">Assignment tip</button>
+          </div>
+          <div class="ai-input-row">
+            <input class="form-input" id="aiInput" placeholder="Ask the admin assistant..." />
+            <button class="btn btn-primary" id="aiSend">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/admin.js"></script>
+  <script>
+    /* ── Sidebar mobile toggle ── */
+    const adminToggle   = document.getElementById('adminSidebarToggle');
+    const adminSidebar  = document.getElementById('adminSidebar');
+    const adminOverlay  = document.getElementById('adminSidebarOverlay');
+
+    function openAdminSidebar()  { adminSidebar.classList.add('open'); adminOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeAdminSidebar() { adminSidebar.classList.remove('open'); adminOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+    if (adminToggle)  adminToggle.addEventListener('click', openAdminSidebar);
+    if (adminOverlay) adminOverlay.addEventListener('click', closeAdminSidebar);
+
+    /* ── Panel switcher ── */
+    const adminPanelBtns = document.querySelectorAll('.admin-sidebar-link[data-panel]');
+
+    function showAdminPanel(panelId) {
+      document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('panel-active'));
+      adminPanelBtns.forEach(b => b.classList.remove('active'));
+
+      const target = document.getElementById('panel-' + panelId);
+      if (target) target.classList.add('panel-active');
+
+      const activeBtn = document.querySelector(`.admin-sidebar-link[data-panel="${panelId}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      document.querySelector('.admin-content').scrollTop = 0;
+      if (window.innerWidth < 900) closeAdminSidebar();
+    }
+
+    adminPanelBtns.forEach(btn => {
+      btn.addEventListener('click', () => showAdminPanel(btn.dataset.panel));
+    });
+
+    /* expose globally so admin.js can navigate (e.g. KPI card clicks) */
+    window.showAdminPanel = showAdminPanel;
+
+    /* Profile dropdown */
+    document.getElementById('profileBtn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('profilePanel').classList.toggle('open');
+      document.getElementById('notifPanel')?.classList.remove('open');
+    });
+    document.addEventListener('click', (e) => {
+      const p = document.getElementById('profilePanel');
+      if (p && !p.contains(e.target) && e.target !== document.getElementById('profileBtn')) p.classList.remove('open');
+    });
+
+    /* Notification bell */
+    document.getElementById('notifBtn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const panel = document.getElementById('notifPanel');
+      panel.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      const panel = document.getElementById('notifPanel');
+      const btn   = document.getElementById('notifBtn');
+      if (panel && !panel.contains(e.target) && e.target !== btn && !btn?.contains(e.target)) {
+        panel.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civic Officer Portal — Civic Resolve AI</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/officer.css" />
+</head>
+<body class="officer-layout">
+
+  <!-- Mobile top bar -->
+  <header class="officer-topbar">
+    <a href="index.html" class="brand">
+      <img src="CivicResolve Logo.png" alt="CivicResolve AI" class="brand-logo-img" />
+      Civic Resolve <span class="accent">AI</span>
+    </a>
+    <button class="officer-sidebar-toggle" id="officerSidebarToggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <!-- Left Sidebar -->
+  <aside class="officer-sidebar" id="officerSidebar">
+
+    <!-- Brand -->
+    <div class="officer-sidebar-brand">
+      <a href="index.html" class="brand officer-brand-link">
+        <img src="CivicResolve Logo.png" alt="CivicResolve AI" class="brand-logo-img" />
+        <span class="officer-brand-text">Civic Resolve <span class="accent">AI</span></span>
+      </a>
+    </div>
+
+    <!-- Profile -->
+    <div class="officer-sidebar-profile">
+      <div style="position:relative;">
+        <button class="officer-profile-btn" id="profileBtn">
+          <span class="avatar" style="background:linear-gradient(135deg,#f59e0b,#b45309)">OF</span>
+          <span class="officer-profile-info">
+            <strong>Officer Arun</strong>
+            <small data-i18n="role_officer">Field Officer</small>
+          </span>
+        </button>
+        <div class="dropdown-panel" id="profilePanel" style="width:220px;top:calc(100% + 8px);left:0;right:auto;">
+          <div class="dropdown-header">Officer Profile</div>
+          <div style="padding:1rem;font-size:0.9rem;">
+            <p><strong>Arun Kumar</strong></p>
+            <p style="color:var(--slate-500);">Ward 12 · Chennai</p>
+            <p style="margin-top:0.5rem;color:var(--slate-500);">officer@civicresolve.ai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="officer-sidebar-nav" aria-label="Officer navigation">
+      <button class="officer-sidebar-link active" data-panel="dashboard">
+        <span class="officer-sidebar-icon">🏠</span>
+        <span class="officer-sidebar-label" data-i18n="nav_dashboard">Dashboard</span>
+      </button>
+      <button class="officer-sidebar-link" data-panel="myTasks">
+        <span class="officer-sidebar-icon">📋</span>
+        <span class="officer-sidebar-label" data-i18n="nav_my_tasks">My Tasks</span>
+      </button>
+      <button class="officer-sidebar-link" data-panel="slaAlerts">
+        <span class="officer-sidebar-icon">⚠️</span>
+        <span class="officer-sidebar-label">SLA Alerts</span>
+      </button>
+      <button class="officer-sidebar-link" data-panel="nearbyTasks">
+        <span class="officer-sidebar-icon">📍</span>
+        <span class="officer-sidebar-label" data-i18n="nav_nearby_tasks">Nearby Tasks</span>
+      </button>
+      <button class="officer-sidebar-link" data-panel="criticalTasks">
+        <span class="officer-sidebar-icon">🔴</span>
+        <span class="officer-sidebar-label" data-i18n="nav_critical">Critical Tasks</span>
+      </button>
+      <button class="officer-sidebar-link" data-panel="inspections">
+        <span class="officer-sidebar-icon">🔍</span>
+        <span class="officer-sidebar-label" data-i18n="nav_inspections">Inspections</span>
+      </button>
+      <button class="officer-sidebar-link" data-panel="progress">
+        <span class="officer-sidebar-icon">⚙️</span>
+        <span class="officer-sidebar-label" data-i18n="nav_progress">Progress Updates</span>
+      </button>
+      <button type="button" class="officer-sidebar-link" id="openAiBtn">
+        <span class="officer-sidebar-icon">🤖</span>
+        <span class="officer-sidebar-label" data-i18n="nav_ai">AI Assistant</span>
+      </button>
+    </nav>
+
+    <!-- Bottom -->
+    <div class="officer-sidebar-bottom">
+      <!-- Logout -->
+      <a href="login.html" class="officer-sidebar-link officer-sidebar-logout" data-i18n="nav_logout">
+        <span class="officer-sidebar-icon">🚪</span>
+        <span class="officer-sidebar-label">Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Mobile overlay -->
+  <div class="officer-sidebar-overlay" id="officerSidebarOverlay"></div>
+
+  <!-- Page content -->
+  <div class="officer-content">
+
+    <!-- ══ Desktop topbar (right-side controls) ══ -->
+    <div class="officer-desk-topbar">
+      <div class="officer-desk-topbar-left">
+        <h2 class="officer-desk-topbar-title" id="officerPanelTitle">Dashboard</h2>
+      </div>
+      <div class="officer-desk-topbar-right">
+        <!-- Dark widget card: Notifications + Language -->
+        <div class="officer-topbar-widget">
+
+          <!-- Notification row -->
+          <div class="officer-topbar-notif-row">
+            <span class="officer-topbar-notif-icon">🔔</span>
+            <div class="officer-topbar-notif-wrap" id="officerTopNotifWrap">
+              <button class="officer-topbar-notif-btn" id="topNotifBtn" aria-label="Notifications" aria-expanded="false">
+                <span class="officer-topbar-notif-label">Notifications</span>
+                <span class="officer-topbar-notif-badge" id="topNotifDot"></span>
+              </button>
+              <div class="officer-topbar-notif-dropdown" id="topNotifPanel" role="dialog" aria-label="Notifications">
+                <div class="officer-topbar-notif-header">
+                  <span>🔔 <strong>Notifications</strong>
+                    <span class="officer-topbar-notif-pill" id="topNotifPill"></span>
+                  </span>
+                  <button class="btn btn-sm btn-ghost" id="topMarkAllRead">Mark all read</button>
+                </div>
+                <div class="officer-topbar-notif-list" id="topNotifList"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Language row -->
+          <div class="officer-topbar-lang-row">
+            <span class="officer-topbar-lang-icon">🌐</span>
+            <select id="langSelect" class="officer-topbar-lang-select" aria-label="Language">
+              <option value="en">English</option>
+              <option value="ta">தமிழ்</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: Dashboard ══ -->
+    <div class="officer-panel panel-active" id="panel-dashboard">
+      <section class="welcome officer-welcome">
+        <h1 id="welcomeTitle">Good Morning, Officer 👋</h1>
+        <p data-i18n="welcome_officer_sub">Manage your assigned civic tasks, perform field inspections and keep every issue updated.</p>
+      </section>
+      <section class="stats-grid" id="officerStats"></section>
+    </div>
+
+    <!-- ══ PANEL: My Tasks ══ -->
+    <div class="officer-panel" id="panel-myTasks">
+      <div class="officer-panel-header">
+        <h2 data-i18n="officer_tasks_title">📋 Today's Priority Tasks</h2>
+        <p data-i18n="officer_tasks_sub">Your current field workload</p>
+      </div>
+      <div class="mock-map cr-live-map" id="officerTaskMap" style="margin-bottom:1rem;max-width:100%;width:100%;min-height:340px;"></div>
+      <div class="map-legend" style="margin-bottom:1rem;">
+        <span class="l-p1" data-i18n="legend_critical">Critical</span>
+        <span class="l-p2" data-i18n="legend_high">High</span>
+        <span class="l-p3" data-i18n="legend_medium">Medium</span>
+        <span class="l-you" data-i18n="legend_you">You</span>
+      </div>
+      <div id="priorityTasks"></div>
+    </div>
+
+    <!-- ══ PANEL: SLA Alerts ══ -->
+    <div class="officer-panel" id="panel-slaAlerts">
+      <div class="officer-panel-header">
+        <h2 data-i18n="officer_critical_title">⚠️ Overdue &amp; SLA Alerts</h2>
+        <p data-i18n="officer_critical_sub">Act on these first</p>
+      </div>
+      <div class="sla-alert-grid" id="slaAlertsList"></div>
+    </div>
+
+    <!-- ══ PANEL: Nearby Tasks ══ -->
+    <div class="officer-panel" id="panel-nearbyTasks">
+      <div class="officer-panel-header">
+        <h2 data-i18n="officer_nearby_title">📍 Nearby Tasks</h2>
+        <p data-i18n="officer_nearby_sub">Tasks close to your location</p>
+      </div>
+      <div class="filters-row" style="margin-bottom:1rem;">
+        <select class="form-select" id="sortNearby">
+          <option value="distance">Sort: Distance</option>
+          <option value="priority">Sort: Priority</option>
+          <option value="due">Sort: Due time</option>
+        </select>
+        <select class="form-select" id="filterCat">
+          <option value="">Category</option>
+          <option>Road</option>
+          <option>Drainage</option>
+          <option>Streetlight</option>
+          <option>Garbage</option>
+        </select>
+        <select class="form-select" id="filterStatus">
+          <option value="">Status</option>
+          <option>Assigned</option>
+          <option>Inspected</option>
+          <option>Work In Progress</option>
+        </select>
+        <select class="form-select" id="filterPri">
+          <option value="">Priority</option>
+          <option>P1</option>
+          <option>P2</option>
+          <option>P3</option>
+        </select>
+      </div>
+      <div id="nearbyList"></div>
+    </div>
+
+    <!-- ══ PANEL: Critical Tasks ══ -->
+    <div class="officer-panel" id="panel-criticalTasks">
+      <div class="officer-panel-header">
+        <h2>🔴 Critical Tasks</h2>
+        <p>P1 and safety-critical field work</p>
+      </div>
+      <div id="criticalList"></div>
+    </div>
+
+    <!-- ══ PANEL: Inspections ══ -->
+    <div class="officer-panel" id="panel-inspections">
+      <div class="officer-panel-header">
+        <h2 data-i18n="officer_inspect_title">🔍 Inspections</h2>
+        <p data-i18n="officer_inspect_sub">Capture evidence and notes</p>
+      </div>
+      <div class="card">
+        <p style="margin-bottom:1rem;color:var(--slate-600);">Open any assigned task and use <strong>Site Inspection</strong> to verify location, severity, and capture evidence. Status moves Assigned → Inspected.</p>
+        <button class="btn btn-primary btn-lg" id="startInspectionQuick">Open Top Task for Inspection</button>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: Progress Updates ══ -->
+    <div class="officer-panel" id="panel-progress">
+      <div class="officer-panel-header">
+        <h2 data-i18n="officer_progress_title">⚙️ Progress Updates</h2>
+        <p data-i18n="officer_progress_sub">Keep citizens and admins informed</p>
+      </div>
+      <div id="progressList"></div>
+    </div>
+
+  </div><!-- /officer-content -->
+
+  <!-- Task Detail Modal -->
+  <div class="modal-overlay" id="taskModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 id="taskModalTitle">Task</h3>
+        <button class="modal-close" data-close-modal="taskModal">×</button>
+      </div>
+      <div class="modal-body" id="taskModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Navigate Modal -->
+  <div class="modal-overlay" id="navModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>🧭 Navigate to Site</h3>
+        <button class="modal-close" data-close-modal="navModal">×</button>
+      </div>
+      <div class="modal-body" id="navModalBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close-modal="navModal">Close</button>
+        <button class="btn btn-primary" id="simulateNavigate">Start Navigation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inspection Modal -->
+  <div class="modal-overlay" id="inspectModal">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3>🔍 Site Inspection</h3>
+        <button class="modal-close" data-close-modal="inspectModal">×</button>
+      </div>
+      <div class="modal-body" id="inspectBody"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close-modal="inspectModal">Cancel</button>
+        <button class="btn btn-primary btn-lg" id="saveInspection">Save Inspection</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Completion Modal -->
+  <div class="modal-overlay" id="completeModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Mark Completed</h3>
+        <button class="modal-close" data-close-modal="completeModal">×</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-bottom:1rem;color:var(--slate-600);">Completion evidence is required. After submit, status becomes <strong>Admin Verification</strong> — you cannot mark citizen-verified.</p>
+        <div class="form-group">
+          <label class="form-label">Completion Photo</label>
+          <input type="file" class="form-input" id="completePhoto" accept="image/*" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Completion Remarks</label>
+          <textarea class="form-textarea" id="completeRemarks" placeholder="Describe work completed..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close-modal="completeModal">Cancel</button>
+        <button class="btn btn-success" id="submitComplete">Submit for Admin Verification</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Modal -->
+  <div class="modal-overlay" id="aiModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>🤖 Officer AI Assistant</h3>
+        <button class="modal-close" data-close-modal="aiModal">×</button>
+      </div>
+      <div class="modal-body">
+        <p class="ai-guard">Field assistant only. I <strong>cannot</strong> change priority, approve completion, assign officers, or verify citizen resolution.</p>
+        <div class="ai-panel">
+          <div class="ai-messages" id="aiMessages">
+            <div class="ai-bubble bot">Ready to help with inspections, evidence checklists, and remark drafts for your assigned tasks.</div>
+          </div>
+          <div class="ai-quick" id="aiQuick">
+            <button data-q="What information do I need to collect for this task?">What to collect?</button>
+            <button data-q="Summarize the citizen reports.">Summarize reports</button>
+            <button data-q="What was the original complaint?">Original complaint</button>
+            <button data-q="What evidence is still required?">Evidence needed</button>
+            <button data-q="Draft my inspection remarks.">Draft remarks</button>
+            <button data-q="What should I update before marking this completed?">Before complete</button>
+          </div>
+          <div class="ai-input-row">
+            <input class="form-input" id="aiInput" placeholder="Ask field assistant..." />
+            <button class="btn btn-primary" id="aiSend">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/officer.js"></script>
+  <script>
+    /* ── Sidebar mobile toggle ── */
+    const officerToggle  = document.getElementById('officerSidebarToggle');
+    const officerSidebar = document.getElementById('officerSidebar');
+    const officerOverlay = document.getElementById('officerSidebarOverlay');
+
+    function openOfficerSidebar()  { officerSidebar.classList.add('open'); officerOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeOfficerSidebar() { officerSidebar.classList.remove('open'); officerOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+    if (officerToggle)  officerToggle.addEventListener('click', openOfficerSidebar);
+    if (officerOverlay) officerOverlay.addEventListener('click', closeOfficerSidebar);
+
+    /* ── Panel switcher ── */
+    const officerPanelBtns = document.querySelectorAll('.officer-sidebar-link[data-panel]');
+
+    function showOfficerPanel(panelId) {
+      document.querySelectorAll('.officer-panel').forEach(p => p.classList.remove('panel-active'));
+      officerPanelBtns.forEach(b => b.classList.remove('active'));
+
+      const target = document.getElementById('panel-' + panelId);
+      if (target) target.classList.add('panel-active');
+
+      const activeBtn = document.querySelector(`.officer-sidebar-link[data-panel="${panelId}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      /* Update desktop topbar title */
+      const titleEl = document.getElementById('officerPanelTitle');
+      if (titleEl && activeBtn) {
+        const labelEl = activeBtn.querySelector('.officer-sidebar-label');
+        if (labelEl) titleEl.textContent = labelEl.textContent.trim();
+      }
+
+      document.querySelector('.officer-content').scrollTop = 0;
+      if (window.innerWidth < 900) closeOfficerSidebar();
+    }
+
+    officerPanelBtns.forEach(btn => {
+      btn.addEventListener('click', () => showOfficerPanel(btn.dataset.panel));
+    });
+
+    /* expose globally for officer.js */
+    window.showOfficerPanel = showOfficerPanel;
+
+    /* Profile dropdown */
+    document.getElementById('profileBtn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('profilePanel').classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      const p = document.getElementById('profilePanel');
+      if (p && !p.contains(e.target) && e.target !== document.getElementById('profileBtn')) p.classList.remove('open');
+    });
+    /* Topbar notification bell */
+    (function initTopNotif() {
+      const btn   = document.getElementById('topNotifBtn');
+      const panel = document.getElementById('topNotifPanel');
+      const dot   = document.getElementById('topNotifDot');
+      const pill  = document.getElementById('topNotifPill');
+      const list  = document.getElementById('topNotifList');
+      const markAll = document.getElementById('topMarkAllRead');
+
+      /* Shared notifications array is owned by officer.js — poll it after it renders */
+      function getNotifs() {
+        return window._officerNotifications || [];
+      }
+
+      function renderTopNotif() {
+        const notifs = getNotifs();
+        const unread = notifs.filter(n => !n.read).length;
+        const label  = unread > 9 ? '9+' : String(unread || '');
+        if (dot)  { dot.textContent = label;  dot.classList.toggle('visible', unread > 0); }
+        if (pill) { pill.textContent = label; pill.classList.toggle('visible', unread > 0); }
+        if (btn)  btn.setAttribute('aria-expanded', panel?.classList.contains('open') ? 'true' : 'false');
+        if (list) {
+          list.innerHTML = notifs.length
+            ? notifs.map((n, i) => `
+                <div class="officer-topbar-notif-item ${n.read ? '' : 'unread'}" data-idx="${i}">
+                  <div>${n.text}</div>
+                  <div class="officer-topbar-notif-time">${n.time}</div>
+                </div>`).join('')
+            : '<div style="padding:1rem;color:var(--slate-500);font-size:0.875rem;">No notifications</div>';
+          list.querySelectorAll('.officer-topbar-notif-item').forEach(el => {
+            el.addEventListener('click', () => {
+              const notifs = getNotifs();
+              if (notifs[+el.dataset.idx]) notifs[+el.dataset.idx].read = true;
+              renderTopNotif();
+            });
+          });
+        }
+      }
+
+      if (btn && panel) {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          panel.classList.toggle('open');
+          btn.setAttribute('aria-expanded', panel.classList.contains('open') ? 'true' : 'false');
+        });
+        document.addEventListener('click', (e) => {
+          if (!panel.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+            panel.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      if (markAll) {
+        markAll.addEventListener('click', () => {
+          getNotifs().forEach(n => n.read = true);
+          renderTopNotif();
+        });
+      }
+
+      /* Poll until officer.js has initialised the notifications array */
+      const interval = setInterval(() => {
+        if (window._officerNotifications) { renderTopNotif(); clearInterval(interval); }
+      }, 100);
+      /* Expose so officer.js can trigger a re-render after init */
+      window.renderTopOfficerNotif = renderTopNotif;
+    })();
+
+  </script>
+</html>

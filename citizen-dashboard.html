@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Citizen Dashboard — Civic Resolve AI</title>
+  <link rel="stylesheet" href="css/shared.css" />
+  <link rel="stylesheet" href="css/citizen.css" />
+</head>
+<body class="citizen-layout">
+
+  <!-- Mobile top bar -->
+  <header class="citizen-topbar">
+    <a href="index.html" class="brand">
+      <img src="CivicResolve Logo.png" alt="CivicResolve AI" class="brand-logo-img" />
+      Civic Resolve <span class="accent">AI</span>
+    </a>
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu">☰</button>
+  </header>
+
+  <!-- Left Sidebar -->
+  <aside class="citizen-sidebar" id="citizenSidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+      <a href="index.html" class="brand sidebar-brand-link">
+        <img src="CivicResolve Logo.png" alt="CivicResolve AI" class="brand-logo-img" />
+        <span class="sidebar-brand-text">Civic Resolve <span class="accent">AI</span></span>
+      </a>
+    </div>
+
+    <!-- Profile chip -->
+    <div class="sidebar-profile">
+      <div style="position:relative;">
+        <button class="sidebar-profile-btn" id="profileBtn">
+          <span class="avatar">CT</span>
+          <span class="sidebar-profile-info">
+            <strong>Priya Sharma</strong>
+            <small data-i18n="role_citizen">Citizen · Ward 12</small>
+          </span>
+        </button>
+        <div class="dropdown-panel" id="profilePanel" style="width:220px;top:calc(100% + 8px);left:0;right:auto;">
+          <div class="dropdown-header" data-i18n="profile_title">Citizen Profile</div>
+          <div style="padding:1rem;font-size:0.9rem;">
+            <p><strong>Priya Sharma</strong></p>
+            <p style="color:var(--slate-500);">Ward 12 · Chennai</p>
+            <p style="margin-top:0.5rem;color:var(--slate-500);">citizen@civicresolve.ai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav links -->
+    <nav class="sidebar-nav" aria-label="Citizen navigation">
+      <button class="sidebar-link active" data-panel="dashboard">
+        <span class="sidebar-icon">🏠</span>
+        <span class="sidebar-label" data-i18n="nav_dashboard">Dashboard</span>
+      </button>
+      <button class="sidebar-link" data-panel="myIssues">
+        <span class="sidebar-icon">📋</span>
+        <span class="sidebar-label" data-i18n="nav_my_issues">My Issues</span>
+      </button>
+      <button class="sidebar-link" data-panel="nearby">
+        <span class="sidebar-icon">📍</span>
+        <span class="sidebar-label" data-i18n="nav_nearby">Nearby Issues</span>
+      </button>
+      <button class="sidebar-link" data-panel="resolved">
+        <span class="sidebar-icon">✅</span>
+        <span class="sidebar-label">Resolved</span>
+      </button>
+      <button type="button" class="sidebar-link" id="openAiBtn" data-i18n="nav_ai">
+        <span class="sidebar-icon">🤖</span>
+        <span class="sidebar-label">AI Assistant</span>
+      </button>
+    </nav>
+
+    <!-- Bottom actions -->
+    <div class="sidebar-bottom">
+      <!-- Logout -->
+      <a href="login.html" class="sidebar-link sidebar-logout" data-i18n="nav_logout">
+        <span class="sidebar-icon">🚪</span>
+        <span class="sidebar-label">Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Overlay for mobile -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Page content -->
+  <div class="citizen-content">
+
+    <!-- ══ PANEL: Dashboard ══ -->
+    <div class="dash-panel panel-active" id="panel-dashboard">
+
+      <!-- Dashboard top bar: title + bell -->
+      <div class="dash-topbar">
+        <div>
+          <h2 class="dash-topbar-title">Dashboard</h2>
+        </div>
+        <div class="dash-topbar-actions">
+          <!-- Language selector -->
+          <select id="langSelect" class="topbar-lang-select" aria-label="Language">
+            <option value="en">🌐 English</option>
+            <option value="ta">🌐 தமிழ்</option>
+            <option value="hi">🌐 हिन्दी</option>
+          </select>
+
+          <!-- Bell button -->
+          <div class="notif-bell-wrap" id="notifBellWrap">
+            <button class="notif-bell-btn" id="notifBtn" aria-label="Notifications" aria-expanded="false">
+              🔔
+              <span class="notif-bell-badge" id="notifDot"></span>
+            </button>
+            <!-- Dropdown -->
+            <div class="notif-dropdown" id="notifPanel" role="dialog" aria-label="Notifications">
+              <div class="notif-dropdown-header">
+                <span class="notif-dropdown-title">
+                  🔔 <strong data-i18n="notif_title">Notifications</strong>
+                  <span class="notif-count-pill" id="notifCountPill"></span>
+                </span>
+                <button class="btn btn-sm btn-ghost" id="markAllRead" data-i18n="notif_mark_all">Mark all read</button>
+              </div>
+              <div class="notif-dropdown-list" id="notifList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <section class="welcome">
+        <h1 id="welcomeTitle">Good Morning, Citizen 👋</h1>
+        <p data-i18n="welcome_citizen_sub">Track your complaints, support community issues, and help make your surroundings better.</p>
+        <div class="welcome-actions" style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.25rem;">
+          <button class="btn btn-lg" style="background:white;color:var(--navy-900);" id="reportIssueBtn" data-i18n="btn_report">📸 Report an Issue</button>
+          <button class="btn btn-lg btn-secondary" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.35);" id="reportVoiceBtn" data-i18n="btn_report_voice">🎙️ Report by Voice</button>
+        </div>
+      </section>
+
+      <section class="stats-grid" id="statsGrid"></section>
+
+      <section class="section" id="needsAction">
+        <div class="section-header">
+          <div>
+            <h2 data-i18n="needs_title">⚡ Needs Your Action</h2>
+            <p data-i18n="needs_sub">Issues waiting for your verification</p>
+          </div>
+        </div>
+        <div id="needsActionList"></div>
+      </section>
+    </div>
+
+    <!-- ══ PANEL: My Issues ══ -->
+    <div class="dash-panel" id="panel-myIssues">
+      <div class="panel-header">
+        <h2 data-i18n="my_issues_title">📋 My Reported Issues</h2>
+        <p data-i18n="my_issues_sub">Full lifecycle from report to resolution</p>
+      </div>
+      <div class="issue-grid" id="myIssuesList"></div>
+    </div>
+
+    <!-- ══ PANEL: Nearby Issues ══ -->
+    <div class="dash-panel" id="panel-nearby">
+      <div class="panel-header">
+        <h2 data-i18n="nearby_title">📍 Nearby Civic Issues</h2>
+        <p data-i18n="nearby_sub">Boost existing issues to add community support</p>
+      </div>
+      <div class="nearby-layout">
+          <div class="nearby-map-wrap">
+            <div class="mock-map cr-live-map" id="citizenMap"></div>
+            <div class="map-legend">
+              <span class="l-p1" data-i18n="legend_critical">Critical</span>
+              <span class="l-p2" data-i18n="legend_high">High</span>
+              <span class="l-p3" data-i18n="legend_medium">Medium</span>
+              <span class="l-p4" data-i18n="legend_low">Low</span>
+              <span class="l-you" data-i18n="legend_you">You</span>
+            </div>
+          </div>
+          <div class="nearby-cards-grid" id="nearbyList"></div>
+      </div>
+    </div>
+
+    <!-- ══ PANEL: Resolved ══ -->
+    <div class="dash-panel" id="panel-resolved">
+      <div class="panel-header">
+        <h2 data-i18n="resolved_title">✅ Recently Resolved</h2>
+        <p data-i18n="resolved_sub">Community wins in your area</p>
+      </div>
+      <div class="resolved-grid" id="resolvedList"></div>
+    </div>
+
+  </div><!-- /citizen-content -->
+
+  <!-- Report Issue Modal -->
+  <div class="modal-overlay" id="reportModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 data-i18n="modal_report">📸 Report an Issue</h3>
+        <button class="modal-close" data-close-modal="reportModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" data-i18n="label_media">Photo / Video</label>
+          <input type="file" class="form-input" id="reportMedia" accept="image/*,video/*" />
+          <div id="mediaPreview" class="media-preview hidden"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="label_location">Location / GPS</label>
+          <input class="form-input" id="reportLocation" value="Main Road, Ward 12, Chennai" />
+          <button type="button" class="btn btn-sm btn-secondary" style="margin-top:0.4rem;" id="useGpsBtn" data-i18n="btn_gps">📍 Use current location (mock)</button>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="label_category">Category</label>
+          <select class="form-select" id="reportCategory">
+            <option value="Road" data-i18n="cat_road">Road</option>
+            <option value="Drainage" data-i18n="cat_drainage">Drainage</option>
+            <option value="Streetlight" data-i18n="cat_streetlight">Streetlight</option>
+            <option value="Garbage" data-i18n="cat_garbage">Garbage</option>
+            <option value="Water Supply" data-i18n="cat_water">Water Supply</option>
+            <option value="Other" data-i18n="cat_other">Other</option>
+          </select>
+          <button type="button" class="btn btn-sm btn-secondary" style="margin-top:0.4rem;" id="aiDetectBtn" data-i18n="btn_ai_cat">✨ AI Category Detection</button>
+        </div>
+        <div class="form-group">
+          <label class="form-label" data-i18n="label_desc">Description</label>
+          <textarea class="form-textarea" id="reportDesc" data-i18n-placeholder="ph_desc" placeholder="Describe the civic issue..."></textarea>
+          <button type="button" class="btn btn-sm btn-secondary" style="margin-top:0.4rem;" id="voiceInputBtn" data-i18n="btn_voice">🎙️ Voice Input</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-close-modal="reportModal" data-i18n="btn_cancel">Cancel</button>
+        <button class="btn btn-primary" id="submitIssueBtn" data-i18n="btn_submit">Submit Issue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Issue Detail Modal -->
+  <div class="modal-overlay" id="issueDetailModal">
+    <div class="modal modal-lg modal-detail">
+      <div class="modal-header">
+        <h3 id="detailTitle" data-i18n="detail_title">Issue Details</h3>
+        <button class="modal-close" data-close-modal="issueDetailModal">×</button>
+      </div>
+      <div class="modal-body" id="issueDetailBody"></div>
+    </div>
+  </div>
+
+  <!-- AI Assistant Modal -->
+  <div class="modal-overlay" id="aiModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 data-i18n="ai_title_citizen">🤖 Citizen AI Assistant</h3>
+        <button class="modal-close" data-close-modal="aiModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="ai-panel">
+          <div class="ai-messages" id="aiMessages">
+            <div class="ai-bubble bot" data-i18n="ai_hello">Hi! I can help you report issues, understand statuses, or find nearby problems. How can I assist?</div>
+          </div>
+          <div class="ai-quick" id="aiQuick">
+            <button data-q="report" data-i18n="ai_q_report">How do I report?</button>
+            <button data-q="boost" data-i18n="ai_q_boost">What is boosting?</button>
+            <button data-q="verify" data-i18n="ai_q_verify">Verify resolution</button>
+            <button data-q="pending" data-i18n="ai_q_pending">My pending issues</button>
+          </div>
+          <div class="ai-input-row">
+            <input class="form-input" id="aiInput" data-i18n-placeholder="ai_ph" placeholder="Ask something..." />
+            <button class="btn btn-primary" id="aiSend" data-i18n="ai_send">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/shared.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/maps.js"></script>
+  <script src="js/citizen.js"></script>
+  <script>
+    /* ── Sidebar mobile toggle ── */
+    const sidebarToggle  = document.getElementById('sidebarToggle');
+    const citizenSidebar = document.getElementById('citizenSidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    function openSidebar()  { citizenSidebar.classList.add('open'); sidebarOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeSidebar() { citizenSidebar.classList.remove('open'); sidebarOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+    if (sidebarToggle) sidebarToggle.addEventListener('click', openSidebar);
+    if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+    /* ── Panel switcher ── */
+    const panelBtns = document.querySelectorAll('.sidebar-link[data-panel]');
+
+    function showPanel(panelId) {
+      /* hide all panels */
+      document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('panel-active'));
+      /* deactivate all nav buttons */
+      panelBtns.forEach(b => b.classList.remove('active'));
+
+      /* show target panel */
+      const target = document.getElementById('panel-' + panelId);
+      if (target) target.classList.add('panel-active');
+
+      /* mark active nav button */
+      const activeBtn = document.querySelector(`.sidebar-link[data-panel="${panelId}"]`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      /* scroll content area to top */
+      document.querySelector('.citizen-content').scrollTop = 0;
+
+      if (window.innerWidth < 900) closeSidebar();
+    }
+
+    panelBtns.forEach(btn => {
+      btn.addEventListener('click', () => showPanel(btn.dataset.panel));
+    });
+
+    /* expose globally so citizen.js can navigate after submitting a report */
+    window.showCitizenPanel = showPanel;
+  </script>
+</body>
+</html>

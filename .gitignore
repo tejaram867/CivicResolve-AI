@@ -1,0 +1,15 @@
+node_modules/
+backend/node_modules/
+ai-engine/venv/
+ai-engine/uploads/*
+!ai-engine/uploads/.gitkeep
+**/__pycache__/
+*.pyc
+.DS_Store
+_engine_extract/
+_backup_simple/
+backend-engine/
+*.log
+.env
+*.env
+.env.*
